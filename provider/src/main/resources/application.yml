@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: hello-dubbo-service-user-provider
+user:
+  service:
+    version: 1.0.0
+server:
+  port: 8081
+dubbo:
+  check: false
+  application:
+    name: demo-provider
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    name: dubbo
+    port: 8888
+  server: true
+  scan:
+    base-packages: com.example.provider.service
+management:
+  endpoint:
+    dubbo:
+      enabled: true
+    dubbo-shutdown:
+      enabled: true
+    dubbo-configs:
+      enabled: true
+    dubbo-services:
+      enabled: true
+    dubbo-references:
+      enabled: true
+    dubbo-properties:
+      enabled: true
+
+  health:
+    dubbo:
+      status:
+        defaults: memory
+        extras: load,threadpool

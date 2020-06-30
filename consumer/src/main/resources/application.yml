@@ -1,0 +1,30 @@
+server:
+  port: 8082
+dubbo:
+  check: false
+  application:
+    name: demo-consumer
+    qos-port: 22223
+    qos-enable: true
+  registry:
+    address: zookeeper://127.0.0.1:2181
+management:
+  endpoint:
+    dubbo:
+      enabled: true
+    dubbo-shutdown:
+      enabled: true
+    dubbo-configs:
+      enabled: true
+    dubbo-services:
+      enabled: true
+    dubbo-references:
+      enabled: true
+    dubbo-properties:
+      enabled: true
+
+  health:
+    dubbo:
+      status:
+        defaults: memory
+        extras: load,threadpool
